@@ -20,9 +20,39 @@ En sortie: [
 ]
 
  */
+function getStringsLength (entries){
 
-function getStringsLength(strings) {
-}
+  // Creer un tableau de sortie : (lengthes)
+  let lengthes = [];
+  // Pour chaque (str) dans (entries)
+  entries.map((str)=>{
+    // Créer une variable (nbChar) contenant le nombre de caractères de (str)
+    let nbChar = str.length;
+    
+    // Créer variable (tmp) qui contient (str)
+    let tmp = str;
+    
+    // Concaténer à (tmp) la phrase " contains (nbChar) characters"
+    tmp += " contains "+nbChar+" characters";
+    
+    //    Ajouter (tmp) à (lengthes) 
+    lengthes.push(tmp)
+    /*
+    let regex = /X/;
+    console.log(tmp.replace(regex, nbChar));
+    */
+  });
+  // Retourner (lengthes)
+  return(lengthes);
+};
+ 
+/*console.log(getStringsLength([
+  'Chicken',
+  'Bacon',
+  'Tofu',
+  'Mayonnaise'
+]));*/
+
 
 // Si besoin, tu peux toujours visualiser le résultat avec console.log,
 // mais alors, il faut alors lancer l'exercice avec node map/ex1
