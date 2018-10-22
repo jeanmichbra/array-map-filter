@@ -1,17 +1,21 @@
 /* Array.prototype.map - Exercice 2
 
-Ecrire une fonction getFoodCategories qui reçoit comme un argument un tableau
+Ecrire une fonction getFoodCategories qui 
+reçoit comme un argument un tableau
 d'objets.
 Chaque objet a deux propriétés:
   - `food` le nom d'un produit alimentaire
-  - `isVegetarian` un booléen indiquant si le produit convient aux végétariens
+  - `isVegetarian` un booléen indiquant si 
+  le produit convient aux végétariens
 
-La fonction getFoodCategories doit renvoyer un tableau contenant,
+La fonction getFoodCategories doit renvoyer 
+un tableau contenant,
 pour chaque objet d'entrée:
 - la chaîne "FOOD is suitable for vegetarians"
 OU
 - la chaîne "FOOD is not suitable for vegetarians"
-en fonction de la valeur de la propriété `isVegetarian`, en remplaçant FOOD
+en fonction de la valeur de la propriété `isVegetarian`, 
+en remplaçant FOOD
 par le nom du produit
 
 Exemple d'entrée:
@@ -41,11 +45,53 @@ En sortie: [
 ]
 
  */
+/*Ecrire une fonction getFoodCategories qui reçoit 
+comme un argument un tableau
+d'objets.*/
+function getFoodCategories (foods) {
 
-function getFoodCategories(foods) {
+  let eat = [];
+  foods.map((food)=>{
+
+    //food.isVegetarian ?
+    if(food.isVegetarian === false) {
+      //  True
+      //  Construire une const (phr) contenant "(food.food) is suitable for vegetarians"
+      const phr = food.food + " is not suitable for vegetarians";
+      //  Ajouter (phr) au tableau (eat)
+      eat.push(phr);
+      
+    } else {
+        //  False
+        //  Construire une const (phr) contenant "(food.food) is not suitable for vegetarians"
+        const phr = food.food +" is suitable for vegetarians";
+        //  Ajouter (phr) au tableau (eat)
+        eat.push(phr);
+      }
+  });
+
+return eat;
 }
 
-
-
+/*
+console.log(getFoodCategories([
+  {
+    food: 'Bacon',
+    isVegetarian: false
+  },
+  {
+    food: 'Sausage',
+    isVegetarian: false
+  },
+  {
+    food: 'Tofu',
+    isVegetarian: true
+  },
+  {
+    food: 'Chick Pea',
+    isVegetarian: true
+  }
+]));
+*/
 // Ne pas modifier l'export
 module.exports = getFoodCategories;
