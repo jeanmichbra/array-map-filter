@@ -1,31 +1,41 @@
 /* Array.prototype.map - Exercice 4
 
-Ecrire une fonction getCirclesProperties, qui prend en entrée un tableau de nombres (entiers ou non),
-représentant les rayons de cercles, et calcule, pour chacun, la circonférence et la surface de ces cercles.
+Ecrire une fonction getCirclesProperties, 
+qui prend en entrée un tableau de nombres (entiers
+ou non),
+représentant les rayons de cercles, et calcule, 
+pour chacun, la circonférence et la surface de 
+ces cercles.
 
 Formules pour les calculs :
 * Ciconférence  =  2 * Pi * rayon
 * Diamètre      =  Pi * rayon * rayon
 
 En JavaScript, la valeur de Pi est donnée par Math.PI.
-Comme on n'a pas besoin d'une très grande précision en sortie,
-il t'est demandé de ramener chaque valeur calculée à trois chiffres
-après la virgule, en utilisant la méthode toFixed des nombres (Google est ton ami).
+Comme on n'a pas besoin d'une très grande précision 
+en sortie,
+il t'est demandé de ramener chaque valeur calculée 
+à trois chiffres
+après la virgule, en utilisant la méthode toFixed 
+des nombres (Google est ton ami).
 
-La fonction devra retourner, pour chaque rayon du tableau d'entrée, un objet ayant cette "forme":
+La fonction devra retourner, pour chaque rayon du tableau 
+d'entrée, un objet ayant cette "forme":
 {
   radius: R,
   circumference: C
   surface: S
 }
 
-où R est le rayon donné en entrée, C et S les valeurs que tu dois calculer.
+où R est le rayon donné en entrée, C et S les valeurs que 
+tu dois calculer.
 
 Exemple de tableau d'entrée :
 
 [1, 3, 4.5, 7]
 
-Tableau de sortie correspondant (toFixed transforme les nombres en chaînes)
+Tableau de sortie correspondant (toFixed transforme 
+  les nombres en chaînes)
 
 [
   {
@@ -51,10 +61,34 @@ Tableau de sortie correspondant (toFixed transforme les nombres en chaînes)
 ]
 */
 
-function getCirclesProperties(radiuses) {
-}
+function getCirclesProperties(radiuse){
+  //Creer un tableau vide appelé (circlesInfo)
+  let circlesInfo = [];
 
+  //Pour chaque element (radius) de (radiuse)
+  radiuse.map((radius)=>{
+    //  Créer un objet vide appele (tmp)
+    let tmp = new Object();
+    // let tmp = {};
+    //  Lui ajouter une propriete "radius", qui vaudra (radius)
+    tmp.radius = radius;
+    //  Lui ajouter une propriete "circumference"
+    tmp.circumference = (2 * Math.PI * radius).toFixed(3);
+    //  Lui ajouter une propriete "surface"
+    tmp.surface = (Math.PI * radius * radius).toFixed(3);
+    //console.log(radius);
+    //  Ajouter (tmp) à (circlesInfo) ["push"]
+    circlesInfo.push(tmp);
+  });
+  
+  
+  //Renvoyer (circlesInfo)
+  return(circlesInfo);
+}  
 
+//console.log(getCirclesProperties(  [
+//  1, 2, 7, 11
+//]));
 
 // Ne pas modifier l'export
 module.exports = getCirclesProperties;
