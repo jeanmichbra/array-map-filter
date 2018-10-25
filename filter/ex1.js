@@ -1,7 +1,9 @@
 /* Array.prototype.filter - Exercice 1
 
-Ecrire une fonction getPositiveNumbers qui reçoit comme un argument un tableau de nombres.
-En utilisant filter, cette fonction doit renvoyer un tableau ne contenant que des nombres
+Ecrire une fonction getPositiveNumbers qui reçoit
+ comme un argument un tableau de nombres.
+En utilisant filter, cette fonction doit renvoyer 
+un tableau ne contenant que des nombres
 positifs ou nuls.
 
 Exemple de tableau d'entrée:
@@ -12,7 +14,19 @@ Sortie attendue:
  */
 
 function getPositiveNumbers(numbers) {
+  const positifNulNumbers = [];
+  numbers.filter((returnNumbers)=>{
+    if (returnNumbers >= 0){
+      positifNulNumbers.push(returnNumbers);
+      return;
+    }else{
+      return;
+      }
+    
+  });
+  return positifNulNumbers;
 }
+console.log(getPositiveNumbers ([7, -4, 2, 0, -10, 3, 11]));
 
 // Si besoin, tu peux toujours visualiser le résultat avec console.log,
 // mais alors, il faut alors lancer l'exercice avec node filter/ex1
